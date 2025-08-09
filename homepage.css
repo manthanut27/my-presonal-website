@@ -1,0 +1,126 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+header {
+      text-align: center;
+      background-color: #222;
+      color: white;
+      padding: 20px;
+    }
+nav a {
+      margin: 0 15px;
+      color: #00ffcc;
+      text-decoration: none;
+    }
+#header-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
+    }
+main {
+      padding: 20px;
+    }
+section {
+      margin-bottom: 40px;
+    }
+#center-align{
+  text-align: center;
+}
+article {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      width: 200px;
+    }
+article img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+label {
+      display: block;
+      margin-top: 10px;
+    }
+footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+#menu {
+  display: flex;
+  flex-wrap: wrap; /* allows articles to wrap to the next line if needed */
+  gap: 20px; /* space between articles */
+  justify-content: center; /* optional: center the items horizontally */
+  }
+
+#menu article {
+  flex: 0 0 300px; /* fixed width for each article */
+  box-sizing: border-box;
+  }
+
+#order form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  
+}
+
+#order form label,
+#order form input,
+#order form textarea,
+#order form fieldset,
+#order form legend {
+  grid-column: span 2;
+}
+
+#order form fieldset {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#order form textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+#order form input[type="number"] {
+  width: 60px;
+  margin-left: 10px;
+}
+
+#order form input[type="submit"] {
+  grid-column: span 2;
+  padding: 10px 20px;
+  background-color: #00cc99;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#order form input[type="submit"]:hover {
+  background-color: #009977;
+}
+
+section {
+  margin-bottom: 50px;
+  text-align: center; /* ⬅️ center-aligns the headings */
+}
+
+#menu,
+#order form {
+  justify-content: center;  /* ⬅️ center-aligns content inside */
+  margin: 0 auto;           /* ⬅️ centers the container */
+}
