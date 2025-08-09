@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>My Personal Site</title>
+    <link rel="stylesheet" href="my pfp.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">My Portfolio</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <img src="https://i.pinimg.com/736x/fb/ef/d9/fbefd954815f4163c0447682c9fcdf5f.jpg" alt="My Photo" class="profile-pic">
+                <p>Hi, I'm Manthan Utekar 👋 I’m passionate about coding, design, and creating fun projects.</p>
+            </div>
+            <details>
+                <summary><strong>social media</strong>🎥📓</summary>
+                <!-- keep icons -->
+            </details>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>MoMs kitchen</h3>
+                    <p>A simple restaurant menu and ordering system.</p>
+                    <a href="https://github.com/manthanut27/MoM-s-kitchen-project-new-.git" class="btn">View Code</a>
+                    <a href="homepage.html" class="btn">Live Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <form id="contactForm">
+                <input id="contactName" name="name" type="text" placeholder="Your Name" required>
+                <input id="contactEmail" name="email" type="email" placeholder="Your Email" required>
+                <textarea id="contactMessage" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send</button>
+                <div id="contactMessageBox" style="margin-top:10px;"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 My Portfolio | Built with ❤️ and CSS</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async(e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+
+            const box = document.getElementById('contactMessageBox');
+
+            try {
+                const res = await fetch('/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        message
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    box.style.color = 'green';
+                    box.textContent = 'Message sent — thank you!';
+                    e.target.reset();
+                } else {
+                    box.style.color = 'red';
+                    box.textContent = 'Failed to send message. Try again later.';
+                }
+            } catch (err) {
+                box.style.color = 'red';
+                box.textContent = 'Network error — could not reach server.';
+            }
+        });
+    </script>
+</body>
+
+</html>
