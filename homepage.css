@@ -124,3 +124,7 @@ section {
   justify-content: center;  /* ⬅️ center-aligns content inside */
   margin: 0 auto;           /* ⬅️ centers the container */
 }
+#imgs {
+    height: 400px;
+}
+
